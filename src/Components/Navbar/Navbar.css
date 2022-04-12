@@ -1,0 +1,28 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    background-color: burlywood;
+    padding: 5px;
+    
+}
+.logo-container{
+    margin-left: 50px;
+}
+.logo-container img{
+    width: 200px;
+}
+.link-contaner{
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+}
+.link-contaner a{
+    margin-left: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: blue;
+} 
+.sing-out{
+    cursor: pointer;
+    color: blue;
+}

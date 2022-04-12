@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import BlogDetails from './Components/BlogDetails/BlogDetails';
+import Home from './Components/Home/Home';
+import Invantory from './Components/Invantory/Invantory';
+import Login from './Components/Login/Login';
+import Navbar from './Components/Navbar/Navbar';
+import RequireAuth from './Components/RequireAuth/RequireAuth';
+import Singup from './Components/Singup/Singup';
+import Videos from './Components/Videos/Videos';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+            <Navbar></Navbar>
+         <Routes>
+            
+           <Route path='/' element={<Home></Home>}> </Route>
+            <Route path='/videos' element={<Videos></Videos>}></Route>
+            <Route path='/invantory' element={
+              <RequireAuth>
+                <Invantory></Invantory>
+              </RequireAuth>
+            }></Route>
+             <Route path='/login' element={<Login></Login>}> </Route>
+              <Route path='/singup' element={<Singup></Singup>}></Route>
+            <Route path='/blog/:id' element={<BlogDetails></BlogDetails>}></Route>
+         </Routes>
     </div>
   );
 }
