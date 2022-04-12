@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase.init';
 import './Login.css'
@@ -7,6 +7,7 @@ const Login = () => {
 
       const [email , setEmail] = useState('')
       const [password , setPassword] = useState('')
+     
       const navigate = useNavigate()
 
       const [
@@ -22,6 +23,13 @@ const Login = () => {
        if(user){
            navigate(from , {replace: true})
        }
+        
+          //continue with google
+     const [singInWithGoogle ] = useSignInWithGoogle(auth)
+
+     const handleWithGoogle= ()=>{
+         singInWithGoogle()
+     }
 
        const handleEmailBlur = event=>{
            setEmail(event.target.value)
@@ -57,7 +65,7 @@ const Login = () => {
           <p>
               New to Blog ? <Link className='form-link' to='/singup'> Create an account</Link> 
           </p>
-           <button className='btn'> Continue with Google</button>
+           <button onClick={()=> handleWithGoogle()} className='btn'> Continue with Google</button>
          
           </div>
         </div>

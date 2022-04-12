@@ -8,7 +8,8 @@ const Singup = () => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setconfirmPassword] = useState('')
     const [error, setError] = useState('')
-    const [ createUserWithEmailAndPassword , user] = useCreateUserWithEmailAndPassword(auth)
+    const [ createUserWithEmailAndPassword ] = useCreateUserWithEmailAndPassword(auth)
+    const [user] = useAuthState(auth)
     const navigate = useNavigate()
 
     if(user){
@@ -18,8 +19,7 @@ const Singup = () => {
      const [singInWithGoogle ] = useSignInWithGoogle(auth)
 
     const handleWithGoogle= ()=>{
-        
-        singInWithGoogle(auth)
+        singInWithGoogle()
         console.log('google');
 
     }

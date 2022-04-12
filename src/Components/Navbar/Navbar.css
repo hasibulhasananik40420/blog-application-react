@@ -1,7 +1,7 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    background-color: burlywood;
+    background-color: #77A7FF;
     padding: 5px;
     
 }
@@ -20,9 +20,9 @@
     margin-left: 15px;
     font-size: 20px;
     text-decoration: none;
-    color: blue;
+    color: white;
 } 
 .sing-out{
     cursor: pointer;
-    color: blue;
+    color: white;
 }
